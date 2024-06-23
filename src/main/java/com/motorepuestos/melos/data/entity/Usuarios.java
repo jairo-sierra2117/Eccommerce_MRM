@@ -1,6 +1,6 @@
 package com.motorepuestos.melos.data.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;

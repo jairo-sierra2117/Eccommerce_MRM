@@ -3,25 +3,20 @@ package com.motorepuestos.melos.service;
 import com.motorepuestos.melos.data.entity.Cliente;
 import com.motorepuestos.melos.data.entity.Empleado;
 import com.motorepuestos.melos.data.entity.Usuarios;
-import com.motorepuestos.melos.data.model.ClienteDTO;
 import com.motorepuestos.melos.data.model.EmpleadoDTO;
-import com.motorepuestos.melos.data.model.RolDto;
 import com.motorepuestos.melos.repository.ClienteRepository;
 import com.motorepuestos.melos.repository.EmpleadoRepository;
 import com.motorepuestos.melos.repository.IUsuariosRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.management.relation.Role;
+import javax.persistence.EntityNotFoundException;
 import java.security.SecureRandom;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 @Service
 public class UserService {
