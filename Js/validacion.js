@@ -90,12 +90,12 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        if (!tokenValido) {
-            console.log('Token inválido o no encontrado, redirigiendo a Login.html');
-            ocultarLoader(); // Ocultar loader antes de redirigir
-            redireccionar('/Frontend/LoginMRM.html'); // Redirigir al login si el token es inválido
-            return;
-        }
+        /*  if (!tokenValido) {
+              console.log('Token inválido o no encontrado, redirigiendo a Login.html');
+              ocultarLoader(); // Ocultar loader antes de redirigir
+              redireccionar('/Frontend/LoginMRM.html'); // Redirigir al login si el token es inválido
+              return;
+          }*/
 
         const idRole = localStorage.getItem('idRole');
         if (!idRole) {
