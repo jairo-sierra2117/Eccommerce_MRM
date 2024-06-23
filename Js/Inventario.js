@@ -151,4 +151,3 @@ $(document).ready(function() {
 
     loadInventory();
 });
-

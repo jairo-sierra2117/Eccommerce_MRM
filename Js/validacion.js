@@ -5,18 +5,47 @@ function cerrarSesion() {
     // Remove tokens from localStorage
     localStorage.removeItem('accessToken');
     localStorage.removeItem('idRole');
+    localStorage.removeItem('idUser');
+    localStorage.removeItem('nombre');
+    localStorage.removeItem('correo');
+    localStorage.removeItem('cedula');
+    localStorage.removeItem('telefono');
 
     // Redirect to login page after a delay
     setTimeout(() => {
         ocultarLoader(); // Hide loader after logout process
-        redireccionar('../Frotend/loginMRM.html'); // Adjust path if necessary
+        redireccionar('../Frontend/loginMRM.html'); // Adjust path if necessary
     }, 1000); // Adjust delay time as needed
 }
 
 // DOMContentLoaded event listener to attach logout functionality
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('cerrarSesion').addEventListener('click', cerrarSesion);
+
+    //document.addEventListener('DOMContentLoaded', () => {
+    // Obtener valores del localStorage
+    const nombre = localStorage.getItem('nombre') || 'NOMBRE de usuario no encontrado';
+    const email = localStorage.getItem('correo') || 'correo no encontrado';
+    const cedula = localStorage.getItem('cedula') || 'cedula no encontrada';
+    const telefono = localStorage.getItem('telefono') || 'telefono no encontrado';
+    console.log('Datos recibidos:');
+    console.log('Datos guardados:');
+    console.log(localStorage.getItem('idUser'));
+    console.log(nombre);
+    console.log(email);
+    console.log(cedula);
+    console.log(telefono);
+    // Actualizar el contenido de los elementos en el DOM
+    document.getElementById('userName').textContent = 'Bienvenido, Sr ' + nombre;
+    document.getElementById('userEmail').textContent = email;
+    document.getElementById('userNameInput').value = nombre;
+    document.getElementById('userEmailInput').value = email;
+    document.getElementById('userPhoneInput').value = telefono;
+
 });
+
+
+
 
 
 // Función autoejecutable asíncrona para validar el token y el rol antes de cargar la página
@@ -26,8 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const paginaActual = window.location.pathname.split('/').pop();
         const paginasSinValidacion = [
-            'Login.html',
-            'Loginaministrador.html',
+            'LoginMRM.html',
             'Recuperarcontraseña.html',
             'Registro.html',
             'validacion.html'
@@ -43,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     redireccionarPaginaInicio(idRole); // Redirigir si hay token y rol definido
                 } else {
                     ocultarLoader(); // Ocultar loader antes de redirigir
-                    redireccionar('/Frotend/Login.html'); // Redirigir al login si no hay rol definido
+                    redireccionar('/Frontend/LoginMRM.html'); // Redirigir al login si no hay rol definido
                 }
             } else if (paginaActual === 'validacion.html') {
                 const idRole = localStorage.getItem('idRole');
@@ -54,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }, 2000);
                 } else {
                     ocultarLoader(); // Ocultar loader antes de redirigir
-                    redireccionar('/Frotend/Login.html'); // Redirigir al login si no hay rol definido
+                    redireccionar('/Frontend/LoginMRM.html'); // Redirigir al login si no hay rol definido
                 }
             } else {
                 ocultarLoader(); // Ocultar el loader si la página no requiere validación
@@ -65,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!tokenValido) {
             console.log('Token inválido o no encontrado, redirigiendo a Login.html');
             ocultarLoader(); // Ocultar loader antes de redirigir
-            redireccionar('/Frotend/Login.html'); // Redirigir al login si el token es inválido
+            redireccionar('/Frontend/LoginMRM.html'); // Redirigir al login si el token es inválido
             return;
         }
 
@@ -73,22 +101,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!idRole) {
             console.log('Rol de usuario no encontrado, redirigiendo a Login.html');
             ocultarLoader(); // Ocultar loader antes de redirigir
-            redireccionar('/Frotend/Login.html'); // Redirigir al login si no hay rol definido
+            redireccionar('/Frontend/LoginMRM.html'); // Redirigir al login si no hay rol definido
             return;
         }
 
         const vistasPermitidas = {
-            'BienvenidoAdm.html': [1],
-            'BienvenidoAUX.html': [2],
-            'BienvenidoCliente.html': [4],
             'Crearcolaboradores.html': [1],
             'empleados.html': [1],
-            'HistorialVentas.html': [1, 2],
-            'Historialventaypedidos.html': [1, 2],
-            'ListaClientes.html': [1, 2],
+            'Ventas.html': [1, 2],
             'Vistainventarioadmin.html': [1],
             'Vistainventarioauxiliar.html': [2],
-            'Vistainventariomecanico.html': [3]
+            'perfilEmpl.html': [1, 2, 3]
         };
 
         if (!vistasPermitidas[paginaActual] || !vistasPermitidas[paginaActual].includes(parseInt(idRole))) {
@@ -96,12 +119,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (paginaActual !== 'validacion.html') {
                 ocultarLoader(); // Ocultar loader antes de redirigir
-                redireccionar('../Frotend/validacion.html'); // Redirigir a validacion.html si el rol no está permitido
+                redireccionar('../Frontend/validacion.html'); // Redirigir a validacion.html si el rol no está permitido
             } else {
                 mostrarMensaje('Acceso no autorizado. Redirigiendo a Login...');
                 setTimeout(() => {
                     ocultarLoader(); // Ocultar loader antes de redirigir
-                    redireccionar('../Frotend/Login.html'); // Redirigir al login después de 2 segundos desde validacion.html
+                    redireccionar('../Frontend/LoginMRM.html'); // Redirigir al login después de 2 segundos desde validacion.html
                 }, 2000);
             }
             return;
@@ -115,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error en la validación:', error.message);
         mostrarMensaje('Error en la validación: ' + error.message);
         ocultarLoader(); // Ocultar loader en caso de error
-        redireccionar('../Frotend/Login.html'); // Redirigir al login en caso de error durante la validación
+        redireccionar('../Frontend/LoginMRM.html'); // Redirigir al login en caso de error durante la validación
     }
 })();
 
@@ -133,13 +156,12 @@ function redireccionar(url) {
  */
 function redireccionarPaginaInicio(idRole) {
     const paginasInicio = {
-        1: '../Frotend/BienvenidoAdm.html',
-        2: '../Frotend/BienvenidoAUX.html',
-        4: '../Frotend/BienvenidoCliente.html',
+        1: '../Frontend/Vistainventarioadmin.html',
+        2: '../Frontend/Vistainventarioauxiliar.html'
         // Agregar más roles y sus páginas de inicio si es necesario
     };
 
-    const url = paginasInicio[idRole] || '../Frotend/Login.html';
+    const url = paginasInicio[idRole] || '../Frontend/LoginMRM.html';
     redireccionar(url);
 }
 
