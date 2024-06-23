@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/CSS/ecommerce.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="bg-light py-3">
@@ -18,7 +20,7 @@
                     <img src="../../Images/cart.png" alt="Cart" width="30px">
                     <span class="badge badge-pill badge-danger" id="cart-count">0</span>
                 </a>
-                <a class="nav-link" href="Loginaministrador.html">
+                <a class="nav-link" href="../Frontend/LoginMRM.html">
                     <img src="../../Images/personas.png" alt="Login" width="30px">
                 </a>
             </div>
@@ -35,18 +37,19 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../Ecommerce.html">Inicio</a>
+                        <a class="nav-link" href="../index.html">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Categorías
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Llantasrines.html">Llantas y rines</a>
-                                <a class="dropdown-item" href="Repuestos.html">Repuestos</a>
-                                <a class="dropdown-item" href="Accesorios.html">Accesorios</a>
-                                <a class="dropdown-item" href="aceites.html">Aceites</a>
-                                <a class="dropdown-item" href="Compoelectricos.html">Compónentes electricos</a>
+                            <a class="dropdown-item" href="Llantasrines.html">Llantas y rines</a>
+                            <a class="dropdown-item" href="Repuestos.html">Repuestos</a>
+                            <a class="dropdown-item" href="Accesorios.html">Accesorios</a>
+                            <a class="dropdown-item" href="aceites.html">Aceites</a>
+                            <a class="dropdown-item" href="Compoelectricos.html">Compónentes electricos</a>
                             <div class="dropdown-divider"></div>
                         </div>
                     </li>
@@ -56,7 +59,8 @@
     </nav>
 
     <!-- Carrito de compras -->
-    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -83,7 +87,8 @@
             <div class="row">
                 <div class="col-md-4 col-lg-3 mb-4" v-for="product in products">
                     <div class="card h-100 text-center">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_999505-CBT71381613712_082023-O.webp" class="card-img-top" alt="Bandas JAPAN">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_999505-CBT71381613712_082023-O.webp"
+                            class="card-img-top" alt="Bandas JAPAN">
                         <div class="card-body">
                             <h5 class="card-title">Protectores para llanta delantera x2</h5>
                             <p class="card-text">$30,000</p>
@@ -93,7 +98,8 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://down-co.img.susercontent.com/file/38cd39cf98c33e537e3285dd14bbd085" class="card-img-top" alt="Farolas GN" >
+                        <img src="https://down-co.img.susercontent.com/file/38cd39cf98c33e537e3285dd14bbd085"
+                            class="card-img-top" alt="Farolas GN">
                         <div class="card-body">
                             <h5 class="card-title">Luz led de lujo para chasis</h5>
                             <p class="card-text">$60,000</p>
@@ -103,7 +109,8 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_993670-MCO69144864575_042023-O.webp" class="card-img-top" alt="Kit de seguridad">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_993670-MCO69144864575_042023-O.webp"
+                            class="card-img-top" alt="Kit de seguridad">
                         <div class="card-body">
                             <h5 class="card-title">Kit de seguridad</h5>
                             <p class="card-text">$230,000</p>
@@ -113,7 +120,8 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://tiendaonlinebmwmotorrad.vtexassets.com/arquivos/ids/158619-1200-auto?v=637528338358370000&width=1200&height=auto&aspect=true" class="card-img-top" alt="Top case">
+                        <img src="https://tiendaonlinebmwmotorrad.vtexassets.com/arquivos/ids/158619-1200-auto?v=637528338358370000&width=1200&height=auto&aspect=true"
+                            class="card-img-top" alt="Top case">
                         <div class="card-body">
                             <h5 class="card-title">Top case</h5>
                             <p class="card-text">$180,000</p>
@@ -123,7 +131,8 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://motomellos.com/wp-content/uploads/2023/04/Turbo-Led-6.jpg" class="card-img-top" alt="Exploradoras">
+                        <img src="https://motomellos.com/wp-content/uploads/2023/04/Turbo-Led-6.jpg"
+                            class="card-img-top" alt="Exploradoras">
                         <div class="card-body">
                             <h5 class="card-title">Exploradoras</h5>
                             <p class="card-text">$90,000</p>
@@ -133,7 +142,8 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://tauroparts.com/wp-content/uploads/2021/05/mrx-2.jpg" class="card-img-top" alt="Tijera trasera Fz 2.0">
+                        <img src="https://tauroparts.com/wp-content/uploads/2021/05/mrx-2.jpg" class="card-img-top"
+                            alt="Tijera trasera Fz 2.0">
                         <div class="card-body">
                             <h5 class="card-title">Kit de lujo para MRX 150</h5>
                             <p class="card-text">$280,000</p>
@@ -143,7 +153,8 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://s.alicdn.com/@sc04/kf/H836d6cbebee0432a825651db9f0d075dO.jpg_300x300.jpg" class="card-img-top" alt="Pastillas de freno Fz 250">
+                        <img src="https://s.alicdn.com/@sc04/kf/H836d6cbebee0432a825651db9f0d075dO.jpg_300x300.jpg"
+                            class="card-img-top" alt="Pastillas de freno Fz 250">
                         <div class="card-body">
                             <h5 class="card-title">Kit de lujo para NKD 125</h5>
                             <p class="card-text">$250,000</p>
@@ -153,7 +164,8 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/15456118/3571758649.jpg" class="card-img-top" alt="Kit de arrastre NS 200">
+                        <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/15456118/3571758649.jpg"
+                            class="card-img-top" alt="Kit de arrastre NS 200">
                         <div class="card-body">
                             <h5 class="card-title">Salpicaderas de lujo</h5>
                             <p class="card-text">$120,000</p>
@@ -163,7 +175,8 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_604582-CBT75389881961_032024-O.webp" class="card-img-top" alt="Llanta trasera 300 - 18">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_604582-CBT75389881961_032024-O.webp"
+                            class="card-img-top" alt="Llanta trasera 300 - 18">
                         <div class="card-body">
                             <h5 class="card-title">Maniguetas de lujo</h5>
                             <p class="card-text">$110,000</p>
@@ -173,7 +186,8 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4kG8uwzwxgb56GDiiqZFrWWFUWrQ7DKMW2w&s" class="card-img-top" alt="Equipamiento de seguridad">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4kG8uwzwxgb56GDiiqZFrWWFUWrQ7DKMW2w&s"
+                            class="card-img-top" alt="Equipamiento de seguridad">
                         <div class="card-body">
                             <h5 class="card-title">Equipamiento de seguridad</h5>
                             <p class="card-text">$300,000</p>
@@ -183,7 +197,8 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_786609-MCO52187112168_102022-O.webp" class="card-img-top" alt="Espejos de lujo">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_786609-MCO52187112168_102022-O.webp"
+                            class="card-img-top" alt="Espejos de lujo">
                         <div class="card-body">
                             <h5 class="card-title">Espejos de lujo</h5>
                             <p class="card-text">$50,000</p>
@@ -193,7 +208,8 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://lujosyautopartesh.com/wp-content/uploads/2022/06/motoled6000.jpg" class="card-img-top" alt="Luz LED">
+                        <img src="https://lujosyautopartesh.com/wp-content/uploads/2022/06/motoled6000.jpg"
+                            class="card-img-top" alt="Luz LED">
                         <div class="card-body">
                             <h5 class="card-title">Luz LED</h5>
                             <p class="card-text">$40,000</p>
@@ -232,4 +248,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../../Js/scripts.js"></script>
 </body>
+
 </html>

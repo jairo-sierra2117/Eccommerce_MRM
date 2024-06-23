@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MotoRespuestos Melo</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Enlace a tu archivo CSS local -->
-    <link rel="stylesheet" href="/CSS/ecommerce.css">
+    <link rel="stylesheet" href="../css/ecommerce.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="bg-light py-3">
         <div class="container d-flex justify-content-between align-items-center">
-            <img src="/Images/LogoEmpresa.jpg" alt="Logo" class="logo">
+            <img src="../Images/LogoEmpresa.jpg" alt="Logo" class="logo">
             <input type="text" placeholder="Buscar por nombre" class="form-control w-50">
             <div class="ml-auto d-flex">
                 <a class="nav-link" href="#" id="cart">
                     <img src="../Images/cart.png" alt="Cart" width="30px">
                     <span class="badge badge-pill badge-danger" id="cart-count">0</span>
                 </a>
-                <a class="nav-link" href="Loginaministrador.html">
+                <a class="nav-link" href="../Frontend/LoginMRM.html">
                     <img src="../Images/personas.png" alt="Login" width="30px">
                 </a>
             </div>
@@ -36,18 +38,20 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="Ecommerce.html">Inicio</a>
+                        <a class="nav-link" href="../index.html">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Categorías
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Navbarcategorias/Llantasrines.html">Llantas y rines</a>
-                            <a class="dropdown-item" href="Navbarcategorias/Repuestos.html">Repuestos</a>
-                            <a class="dropdown-item" href="Navbarcategorias/Accesorios.html">Accesorios</a>
-                            <a class="dropdown-item" href="Navbarcategorias/aceites.html">Aceites</a>
-                            <a class="dropdown-item" href="Navbarcategorias/Compoelectricos.html">Compónentes eléctricos</a>
+                            <a class="dropdown-item" href="./Navbarcategorias/Llantasrines.html">Llantas y rines</a>
+                            <a class="dropdown-item" href="./Navbarcategorias/Repuestos.html">Repuestos</a>
+                            <a class="dropdown-item" href="./Navbarcategorias/Accesorios.html">Accesorios</a>
+                            <a class="dropdown-item" href="./Navbarcategorias/aceites.html">Aceites</a>
+                            <a class="dropdown-item" href="./Navbarcategorias/Compoelectricos.html">Compónentes
+                                eléctricos</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Otra categoría</a>
                         </div>
@@ -58,7 +62,8 @@
     </nav>
 
     <!-- Carrito de compras -->
-    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -72,22 +77,22 @@
                     <p class="mt-3">Total: $<span id="cart-total">0</span></p>
                 </div>
                 <div class="modal-footer">
-                    <a href="Pago.html">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Proceder al Pago</button>
-                </a>
+                    <a href="../Pago.html">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Proceder al Pago</button>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Hero Section -->
     <section class="hero position-relative text-center text-white">
-        <img src="/Images/image.png" alt="Motores" class="hero-image">
+        <img src="../Images/image.png" alt="Motores" class="hero-image">
         <div class="hero-text position-absolute w-100 text-center">
             <h1 class="display-4">MotoRespuestos Melo</h1>
             <p class="lead">Encuentra las mejores repuestos y accesorios para tu moto, ¡al mejor precio!</p>
-            <a href="Navbarcategorias/Repuestos.html">
+            <a href="./Navbarcategorias/Repuestos.html">
                 <button class="btn btn-warning btn-lg">Ver Repuestos</button>
             </a>
         </div>
@@ -108,11 +113,11 @@
             <div class="row">
                 <div class="col-md-4 col-lg-3 mb-4" v-for="product in products">
                     <div class="card h-100 text-center">
-                        <img src="/images/BandasJapan.jpg" class="card-img-top" alt="Bandas JAPAN">
+                        <img src="../images/BandasJapan.jpg" class="card-img-top" alt="Bandas JAPAN">
                         <div class="card-body">
                             <a href="#" style="color: black;">
                                 <h5 class="card-title">Bandas JAPAN</h5>
-                                </a>
+                            </a>
                             <p class="card-text">$70,000</p>
                             <button class="btn btn-warning">Añadir al carrito</button>
                         </div>
@@ -120,10 +125,11 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_714747-MCO51408251163_092022-O.webp" class="card-img-top" alt="Farolas GN" >
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_714747-MCO51408251163_092022-O.webp"
+                            class="card-img-top" alt="Farolas GN">
                         <div class="card-body">
                             <a href="#" style="color: black;">
-                            <h5 class="card-title">Farolas GN</h5>
+                                <h5 class="card-title">Farolas GN</h5>
                             </a>
                             <p class="card-text">$100,000</p>
                             <button class="btn btn-warning">Añadir al carrito</button>
@@ -132,10 +138,11 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_993670-MCO69144864575_042023-O.webp" class="card-img-top" alt="Kit de seguridad">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_993670-MCO69144864575_042023-O.webp"
+                            class="card-img-top" alt="Kit de seguridad">
                         <div class="card-body">
                             <a href="#" style="color: black;">
-                            <h5 class="card-title">Kit de seguridad</h5>
+                                <h5 class="card-title">Kit de seguridad</h5>
                             </a>
                             <p class="card-text">$230,000</p>
                             <button class="btn btn-warning">Añadir al carrito</button>
@@ -144,10 +151,11 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://tiendaonlinebmwmotorrad.vtexassets.com/arquivos/ids/158619-1200-auto?v=637528338358370000&width=1200&height=auto&aspect=true" class="card-img-top" alt="Top case">
+                        <img src="https://tiendaonlinebmwmotorrad.vtexassets.com/arquivos/ids/158619-1200-auto?v=637528338358370000&width=1200&height=auto&aspect=true"
+                            class="card-img-top" alt="Top case">
                         <div class="card-body">
                             <a href="#" style="color: black;">
-                            <h5 class="card-title">Top case</h5>
+                                <h5 class="card-title">Top case</h5>
                             </a>
                             <p class="card-text">$180,000</p>
                             <button class="btn btn-warning">Añadir al carrito</button>
@@ -156,10 +164,11 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://motomellos.com/wp-content/uploads/2023/04/Turbo-Led-6.jpg" class="card-img-top" alt="Exploradoras">
+                        <img src="https://motomellos.com/wp-content/uploads/2023/04/Turbo-Led-6.jpg"
+                            class="card-img-top" alt="Exploradoras">
                         <div class="card-body">
                             <a href="#" style="color: black;">
-                            <h5 class="card-title">Exploradoras</h5>
+                                <h5 class="card-title">Exploradoras</h5>
                             </a>
                             <p class="card-text">$90,000</p>
                             <button class="btn btn-warning">Añadir al carrito</button>
@@ -168,10 +177,11 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_637148-MCO75938243535_042024-O.webp" class="card-img-top" alt="Tijera trasera Fz 2.0">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_637148-MCO75938243535_042024-O.webp"
+                            class="card-img-top" alt="Tijera trasera Fz 2.0">
                         <div class="card-body">
                             <a href="#" style="color: black;">
-                            <h5 class="card-title">Tijera trasera Fz 2.0</h5>
+                                <h5 class="card-title">Tijera trasera Fz 2.0</h5>
                             </a>
                             <p class="card-text">$160,000</p>
                             <button class="btn btn-warning">Añadir al carrito</button>
@@ -180,10 +190,11 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_773637-MCO41717172346_052020-O.webp" class="card-img-top" alt="Pastillas de freno Fz 250">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_773637-MCO41717172346_052020-O.webp"
+                            class="card-img-top" alt="Pastillas de freno Fz 250">
                         <div class="card-body">
                             <a href="#" style="color: black;">
-                            <h5 class="card-title">Pastillas de freno Fz 250</h5>
+                                <h5 class="card-title">Pastillas de freno Fz 250</h5>
                             </a>
                             <p class="card-text">$40,000</p>
                             <button class="btn btn-warning">Añadir al carrito</button>
@@ -192,10 +203,11 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://tcmotosracing.com/wp-content/uploads/2023/04/Pulsar200-ns-46-14-428hs-132-Chi-1.jpg" class="card-img-top" alt="Kit de arrastre NS 200">
+                        <img src="https://tcmotosracing.com/wp-content/uploads/2023/04/Pulsar200-ns-46-14-428hs-132-Chi-1.jpg"
+                            class="card-img-top" alt="Kit de arrastre NS 200">
                         <div class="card-body">
                             <a href="#" style="color: black;">
-                            <h5 class="card-title">Kit de arrastre NS 200</h5>
+                                <h5 class="card-title">Kit de arrastre NS 200</h5>
                             </a>
                             <p class="card-text">$230,000</p>
                             <button class="btn btn-warning">Añadir al carrito</button>
@@ -204,10 +216,11 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_783676-MCO44622875942_012021-O.webp" class="card-img-top" alt="Llanta trasera 300 - 18">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_783676-MCO44622875942_012021-O.webp"
+                            class="card-img-top" alt="Llanta trasera 300 - 18">
                         <div class="card-body">
                             <a href="#" style="color: black;">
-                            <h5 class="card-title">Llanta trasera 300 - 18</h5>
+                                <h5 class="card-title">Llanta trasera 300 - 18</h5>
                             </a>
                             <p class="card-text">$210,000</p>
                             <button class="btn btn-warning">Añadir al carrito</button>
@@ -216,10 +229,11 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4kG8uwzwxgb56GDiiqZFrWWFUWrQ7DKMW2w&s" class="card-img-top" alt="Equipamiento de seguridad">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4kG8uwzwxgb56GDiiqZFrWWFUWrQ7DKMW2w&s"
+                            class="card-img-top" alt="Equipamiento de seguridad">
                         <div class="card-body">
                             <a href="#" style="color: black;">
-                            <h5 class="card-title">Equipamiento de seguridad</h5>
+                                <h5 class="card-title">Equipamiento de seguridad</h5>
                             </a>
                             <p class="card-text">$300,000</p>
                             <button class="btn btn-warning">Añadir al carrito</button>
@@ -228,10 +242,11 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_786609-MCO52187112168_102022-O.webp" class="card-img-top" alt="Espejos de lujo">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_786609-MCO52187112168_102022-O.webp"
+                            class="card-img-top" alt="Espejos de lujo">
                         <div class="card-body">
                             <a href="#" style="color: black;">
-                            <h5 class="card-title">Espejos de lujo</h5>
+                                <h5 class="card-title">Espejos de lujo</h5>
                             </a>
                             <p class="card-text">$50,000</p>
                             <button class="btn btn-warning">Añadir al carrito</button>
@@ -240,10 +255,11 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 text-center">
-                        <img src="https://lujosyautopartesh.com/wp-content/uploads/2022/06/motoled6000.jpg" class="card-img-top" alt="Luz LED">
+                        <img src="https://lujosyautopartesh.com/wp-content/uploads/2022/06/motoled6000.jpg"
+                            class="card-img-top" alt="Luz LED">
                         <div class="card-body">
                             <a href="#" style="color: black;">
-                            <h5 class="card-title">Luz LED</h5>
+                                <h5 class="card-title">Luz LED</h5>
                             </a>
                             <p class="card-text">$40,000</p>
                             <button class="btn btn-warning">Añadir al carrito</button>
@@ -260,7 +276,7 @@
                 <div class="col-md-6">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="Ecommerce.html" class="text-white">Inicio</a></li>
+                        <li><a href="../index.html" class="text-white">Inicio</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6">
@@ -279,4 +295,5 @@
     <!-- Tu archivo de scripts personalizado -->
     <script src="../Js/scripts.js"></script>
 </body>
+
 </html>
