@@ -8,12 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
             // Obtener valores de los campos del formulario
             const nombre = document.getElementById('nombre').value;
             const telefono = document.getElementById('telefono').value;
+            const rol = "COLABORADOR";
             const email = document.getElementById('email').value;
             const cedula = document.getElementById('cedula').value;
             const contrasena = document.getElementById('password').value;
 
             // Validar que todos los campos requeridos estén llenos
-            if (!nombre || !telefono || !email || !cedula || !contrasena) {
+            if (!nombre || !telefono || !rol || !email || !cedula || !contrasena) {
                 alert('Por favor, complete todos los campos.');
                 return;
             }
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 "telefono": telefono,
                 "tipoUser": "EMPLEADO",
                 "cedula": parseInt(cedula),
-                "roleName": "COLABORADOR"
+                "roleName": rol
             });
 
             const requestOptions = {
@@ -81,7 +82,7 @@ function mostrarJSON(nombre, email, contrasena, telefono, cedula, rol) {
         "telefono": telefono,
         "tipoUser": "EMPLEADO",
         "cedula": parseInt(cedula),
-        "roleName": "COLABORADOR"
+        "roleName": rol
     };
     console.log('JSON a enviar:', json);
 }
