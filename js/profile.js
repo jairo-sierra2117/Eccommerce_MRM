@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (rol === "1") {
         document.getElementById("sidebar-admin").style.display = "flex";
         initializeSidebarEvents('cerrarSesionAdmin');
+    } else if (rol === "2") {
+        document.getElementById("sidebar-auxiliar").style.display = "flex";
+        initializeSidebarEvents('cerrarSesionAdmin');
     }
 });
 
