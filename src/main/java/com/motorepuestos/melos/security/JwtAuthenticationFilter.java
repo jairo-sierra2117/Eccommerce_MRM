@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /*La función de esta clase será validar la información del token y si esto es exitoso,
 establecerá la autenticación de un usuario en la solicitud o en el contexto de seguridad de nuestra aplicación*/
@@ -52,7 +53,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             //Luego creamos el objeto userDetails el cual contendrá todos los detalles de nuestro username, ósea nombre, pw y roles segun el método loadUserByUsername
             UserDetails userDetails = customUsersDetailsService.loadUserByUsername(username);
             //Cargamos una lista de String con los roles alojados en BD
-            List<String> userRoles = userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList();
+            List<String> userRoles = userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList());
             //Comprobamos que el usuario autenticado posee alguno de los siguientes roles alojados en BD
             if (userRoles.contains("USER") || userRoles.contains("ADMIN")) {
                 /*Creamos el objeto UsernamePasswordAuthenticationToken el cual contendrá los detalles de autenticación del usuario*/
