@@ -60,8 +60,8 @@ $(document).ready(function () {
                             <td>${producto.marcaId}</td>
                             <td>${producto.precioCosto}</td>
                             <td>${producto.precioVenta}</td>
+                            <td><img src="${producto.imgUrl}" alt="${producto.descripcion}" width="50"></td>
                             <td><button class="btn btn-warning btn-sm editButton">Edit</button></td>
-                            <td><button class="btn btn-custom" onclick="addToSales('${producto.codigo}', '${producto.descripcion}', ${producto.precioVenta})">+</button></td>
                         </tr>
                     `;
                     tbody.append(row);
@@ -102,7 +102,8 @@ $(document).ready(function () {
             stock: $('#editQuantity').val(),
             marcaId: $('#editSupplier').val(),
             precioCosto: $('#editCost').val(),
-            precioVenta: $('#editSaleCost').val()
+            precioVenta: $('#editSaleCost').val(),
+            imgUrl: $('#editImgUrl').val()  // Asegúrate de que este campo coincida con el formulario de edición
         };
 
         // Realizar solicitud PUT al backend para actualizar el producto
@@ -121,9 +122,10 @@ $(document).ready(function () {
             codigo: $('#codigo').val(),
             categoriaId: parseInt($('#categoriaId').val()),
             marcaId: parseInt($('#marcaId').val()),
-            stock: parseInt($('#stock').val()),
+            stock: parseInt($('#cantidad').val()),
             precioCosto: parseFloat($('#precioCosto').val()),
-            precioVenta: parseFloat($('#precioVenta').val())
+            precioVenta: parseFloat($('#precioVenta').val()),
+            imgUrl: $('#imgUrl').val()  // Asegúrate de que este campo coincida con el formulario de creación
         };
 
         // Realizar la solicitud POST al backend para crear un nuevo producto
@@ -148,6 +150,7 @@ $(document).ready(function () {
                 $('#editSupplier').val(data.marcaId);
                 $('#editCost').val(data.precioCosto);
                 $('#editSaleCost').val(data.precioVenta);
+                $('#editImgUrl').val(data.imgUrl);  // Asegúrate de cargar el campo de imagen en el formulario de edición
                 $('#editModal').modal('show');
             })
             .catch(error => {
@@ -182,6 +185,7 @@ $(document).ready(function () {
                         $(this).find('td:eq(7)').text(formData.marcaId);
                         $(this).find('td:eq(8)').text(formData.precioCosto);
                         $(this).find('td:eq(9)').text(formData.precioVenta);
+                        $(this).find('td:eq(10)').html(`<img src="${formData.imgUrl}" alt="${formData.descripcion}" width="50">`); // Actualizar también la imagen
                         return false; // Salir del bucle each
                     }
                 });
@@ -211,23 +215,23 @@ $(document).ready(function () {
                 console.log('Producto creado exitosamente:', data);
                 // Agregar la nueva fila a la tabla
                 const newRow = `
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>${data.id}</td>
-                    <td>${data.index}</td>
-                    <td>${data.descripcion}</td>
-                    <td>${data.codigo}</td>
-                    <td>${data.categoriaId}</td>
-                    <td>${data.stock}</td>
-                    <td>${data.marcaId}</td>
-                    <td>${data.precioCosto}</td>
-                    <td>${data.precioVenta}</td>
-                    <td><button class="btn btn-warning btn-sm editButton">Edit</button></td>
-                    <td><button class="btn btn-custom" onclick="addToSales('${data.codigo}', '${data.descripcion}', ${data.precioVenta})">+</button></td>
-                </tr>
-            `;
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>${data.id}</td>
+                        <td>${data.index}</td>
+                        <td>${data.descripcion}</td>
+                        <td>${data.codigo}</td>
+                        <td>${data.categoriaId}</td>
+                        <td>${data.stock}</td>
+                        <td>${data.marcaId}</td>
+                        <td>${data.precioCosto}</td>
+                        <td>${precioVenta}</td>
+                        <td><img src="${data.imgUrl}" alt="${data.descripcion}" width="50"></td>
+                        <td><button class="btn btn-warning btn-sm editButton">Editar</button></td>
+                    </tr>
+                `;
                 $('#inventoryTable tbody').append(newRow);
-                $('#createModal').modal('hide'); // Ocultar modal después del envío
+                $('#createModal').modal('hide');
             })
             .catch(error => {
                 console.error('Error al crear el producto:', error);
@@ -250,47 +254,12 @@ $(document).ready(function () {
             });
     }
 
-    // Cargar datos de inventario al cargar la página
+    // Cargar inicialmente los datos del inventario al cargar la página
     cargarDatosInventario();
 
-    // Función para agregar productos a la tabla de ventas
-    window.addToSales = function (codigo, descripcion, precioVenta) {
-        const salesTable = $('#salesTable tbody');
-        const row = `
-            <tr>
-                <td>${codigo}</td>
-                <td>${descripcion}</td>
-                <td>${precioVenta.toFixed(2)}</td>
-                <td><input type="number" class="form-control quantity" min="1" value="1"></td>
-                <td class="subtotal">${precioVenta.toFixed(2)}</td>
-                <td><button class="btn btn-danger btn-sm deleteSaleButton">X</button></td>
-            </tr>
-        `;
-        salesTable.append(row);
-        actualizarTotal();
-    }
-
-    // Evento para actualizar subtotal y total al cambiar la cantidad
-    $('#salesTable').on('input', '.quantity', function () {
-        const quantity = $(this).val();
-        const price = parseFloat($(this).closest('tr').find('td:eq(2)').text());
-        const subtotal = (price * quantity).toFixed(2);
-        $(this).closest('tr').find('.subtotal').text(subtotal);
-        actualizarTotal();
+    // Actualizar los datos del inventario cada vez que se agregue, edite o elimine un producto
+    $('#createProductButton, #saveChangesButton, #deleteButton').click(function () {
+        cargarDatosInventario();
     });
-
-    // Evento para eliminar una fila de la tabla de ventas
-    $('#salesTable').on('click', '.deleteSaleButton', function () {
-        $(this).closest('tr').remove();
-        actualizarTotal();
-    });
-
-    // Función para actualizar el total a pagar
-    function actualizarTotal() {
-        let total = 0;
-        $('#salesTable .subtotal').each(function () {
-            total += parseFloat($(this).text());
-        });
-        $('#totalPagar').text(total.toFixed(2));
-    }
 });
+
