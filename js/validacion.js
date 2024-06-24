@@ -14,7 +14,7 @@ function cerrarSesion() {
     // Redirect to login page after a delay
     setTimeout(() => {
         ocultarLoader(); // Hide loader after logout process
-        redireccionar('../Frontend/loginMRM.html'); // Adjust path if necessary
+        redireccionar('../Frontend/LoginMRM.html'); // Adjust path if necessary
     }, 1000); // Adjust delay time as needed
 }
 
