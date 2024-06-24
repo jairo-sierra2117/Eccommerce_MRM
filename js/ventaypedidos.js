@@ -254,7 +254,7 @@ $(document).ready(function () {
     cargarDatosInventario();
 
     // Función para agregar productos a la tabla de ventas
-    window.addToSales = function(codigo, descripcion, precioVenta) {
+    window.addToSales = function (codigo, descripcion, precioVenta) {
         const salesTable = $('#salesTable tbody');
         const row = `
             <tr>
