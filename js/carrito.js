@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     // Inicializar el carrito desde el almacenamiento local
     let cart = JSON.parse(localStorage.getItem('cart')) || [];

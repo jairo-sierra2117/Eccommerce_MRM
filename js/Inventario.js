@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     function loadInventory() {
         const inventory = JSON.parse(localStorage.getItem('inventory')) || [];
         $('#inventoryTable tbody').empty();
@@ -42,9 +42,9 @@ $(document).ready(function() {
         return JSON.parse(localStorage.getItem('inventory')) || [];
     }
 
-    $('#deleteButton').click(function() {
+    $('#deleteButton').click(function () {
         let inventory = getInventory();
-        $('#inventoryTable tbody input[type="checkbox"]:checked').each(function() {
+        $('#inventoryTable tbody input[type="checkbox"]:checked').each(function () {
             const rowIndex = $(this).closest('tr').index();
             inventory.splice(rowIndex, 1);
             $(this).closest('tr').remove();
@@ -54,7 +54,7 @@ $(document).ready(function() {
     });
 
     let row;
-    $('#inventoryTable').on('click', '.editButton', function() {
+    $('#inventoryTable').on('click', '.editButton', function () {
         row = $(this).closest('tr');
         $('#editName').val(row.find('td:eq(2)').text());
         $('#editCode').val(row.find('td:eq(3)').text());
@@ -67,7 +67,7 @@ $(document).ready(function() {
         $('#editModal').modal('show');
     });
 
-    $('#saveChangesButton').click(function() {
+    $('#saveChangesButton').click(function () {
         let inventory = getInventory();
         const rowIndex = row.index();
         inventory[rowIndex] = {
@@ -85,16 +85,16 @@ $(document).ready(function() {
         $('#editModal').modal('hide');
     });
 
-    $('#selectAll').click(function() {
+    $('#selectAll').click(function () {
         $('#inventoryTable tbody input[type="checkbox"]').prop('checked', this.checked);
     });
 
-    $('#addButton').click(function() {
+    $('#addButton').click(function () {
         $('#addForm')[0].reset();
         $('#addModal').modal('show');
     });
 
-    $('#saveAddButton').click(function() {
+    $('#saveAddButton').click(function () {
         let inventory = getInventory();
         const newItem = {
             name: $('#addName').val(),
